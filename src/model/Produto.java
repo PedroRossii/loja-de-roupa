@@ -1,7 +1,7 @@
 package model;
 
 public interface Produto {
-    int getId(); // <<< MUDANÇA AQUI: Adicionado requisito de ID
+    int getId();
     String getNome();
     double getPreco();
     String getTipo();

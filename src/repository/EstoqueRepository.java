@@ -28,14 +28,12 @@ public class EstoqueRepository {
         return new ArrayList<>(produtos);
     }
 
-    // <<< MUDANÇA AQUI: Busca por ID e verifica se está disponível (em estoque)
     public Optional<Produto> getProdutoDisponivelPorId(int id) {
         return produtos.stream()
                 .filter(p -> p.getId() == id && p.getQuantidade() > 0)
                 .findFirst();
     }
 
-    // <<< MUDANÇA AQUI: Busca por ID, sem verificar o estoque (usado para dar baixa)
     public Optional<Produto> getProdutoAbsolutoPorId(int id) {
         return produtos.stream()
                 .filter(p -> p.getId() == id)

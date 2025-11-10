@@ -2,9 +2,8 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional; // <<< MUDANÇA AQUI
+import java.util.Optional;
 
-// Entidade Principal 2: Pedido
 public class Pedido {
     private String nomeCliente;
     private List<Produto> itens = new ArrayList<>();
@@ -18,11 +17,9 @@ public class Pedido {
     }
 
     public void adicionarItem(Produto produto) {
-        // No mundo real, criaríamos uma cópia do produto
         itens.add(produto);
     }
 
-    // <<< MUDANÇA AQUI: Nova função para remover item pelo ID
     public boolean removerItemPorId(int id) {
         Optional<Produto> itemParaRemover = itens.stream()
                 .filter(p -> p.getId() == id)

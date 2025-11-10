@@ -27,7 +27,7 @@ public class TerminalView {
             System.out.println("\n--- MENU PRINCIPAL ---");
             System.out.println("1. Ver produtos em estoque");
             System.out.println("2. Adicionar produto ao carrinho");
-            System.out.println("3. Remover produto do carrinho"); // <<< MUDANÇA AQUI: Novo item de menu
+            System.out.println("3. Remover produto do carrinho");
             System.out.println("4. Ver carrinho");
             System.out.println("5. Finalizar compra");
             System.out.println("0. Sair");
@@ -44,7 +44,7 @@ public class TerminalView {
                         adicionarProdutoAoCarrinho();
                         break;
                     case 3:
-                        removerProdutoDoCarrinho(); // <<< MUDANÇA AQUI: Nova chamada
+                        removerProdutoDoCarrinho();
                         break;
                     case 4:
                         verCarrinho();
@@ -72,12 +72,10 @@ public class TerminalView {
     }
 
     private void adicionarProdutoAoCarrinho() {
-        // <<< MUDANÇA AQUI: Solicita ID ao invés de nome
         System.out.print("Digite o ID do produto que deseja adicionar: ");
         try {
             int id = Integer.parseInt(scanner.nextLine());
 
-            // <<< MUDANÇA AQUI: Usa o método de busca por ID
             estoque.getProdutoDisponivelPorId(id)
                     .ifPresentOrElse(
                             produto -> {
@@ -91,9 +89,8 @@ public class TerminalView {
         }
     }
 
-    // <<< MUDANÇA AQUI: Método inteiramente novo
     private void removerProdutoDoCarrinho() {
-        verCarrinho(); // Mostra o carrinho primeiro
+        verCarrinho();
 
         if (carrinhoAtual.getItens().isEmpty()) {
             System.out.println("Seu carrinho já está vazio.");
@@ -104,7 +101,6 @@ public class TerminalView {
         try {
             int id = Integer.parseInt(scanner.nextLine());
 
-            // Usa a nova função do Pedido
             boolean removido = carrinhoAtual.removerItemPorId(id);
 
             if (removido) {

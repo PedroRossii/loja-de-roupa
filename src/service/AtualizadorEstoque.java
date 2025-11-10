@@ -12,7 +12,6 @@ public class AtualizadorEstoque implements Observer {
 
         for (Produto itemPedido : pedido.getItens()) {
 
-            // <<< MUDANÇA AQUI: Usa o ID para buscar o produto absoluto no estoque
             estoque.getProdutoAbsolutoPorId(itemPedido.getId())
                     .ifPresent(produtoDoEstoque -> {
                         estoque.baixarEstoque(produtoDoEstoque, 1);

@@ -1,13 +1,12 @@
 package model;
 
 public class Calca implements Produto {
-    private int id; // <<< MUDANÇA AQUI
+    private int id;
     private String nome;
     private double preco;
     private String tamanho;
     private int quantidade;
 
-    // <<< MUDANÇA AQUI: ID adicionado ao construtor
     public Calca(int id, String nome, double preco, String tamanho, int quantidade) {
         this.id = id;
         this.nome = nome;
@@ -17,7 +16,7 @@ public class Calca implements Produto {
     }
 
     @Override
-    public int getId() { return id; } // <<< MUDANÇA AQUI
+    public int getId() { return id; }
 
     @Override
     public String getNome() { return nome; }
@@ -34,7 +33,6 @@ public class Calca implements Produto {
 
     @Override
     public String toString() {
-        // <<< MUDANÇA AQUI: ID adicionado ao toString
         return String.format("[ID: %d] Calça: %s, Tamanho: %s, Preço: R$%.2f, Estoque: %d",
                 id, nome, tamanho, preco, quantidade);
     }

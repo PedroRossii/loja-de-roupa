@@ -2,7 +2,7 @@ package service;
 
 import model.Pedido;
 
-// Padrão 3: Observer (Observador Concreto 2)
+//Observer
 public class EnviadorEmail implements Observer {
     @Override
     public void atualizar(Pedido pedido) {
